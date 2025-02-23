@@ -23,11 +23,18 @@ public class MainActivity extends AppCompatActivity {
         // Establecer GridLayoutManager con 2 columnas
         recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
 
+        //int[] imagenes = new int[43];
+        String[] nombres = new String[43];
+
+        int imagenes = getResources().getIdentifier("img_" + 1, "drawable", getPackageName());
+        /*for (int i = 0; i <= 43; i++) {
+            imagenes[i] = getResources().getIdentifier("img_" + i, "drawable", getPackageName());
+            System.out.println(imagenes[i]);
+            nombres[i] = "nombres";
+        }*/
+
         // Datos de ejemplo
-        int[] images = {android.R.drawable.ic_menu_camera, android.R.drawable.ic_menu_gallery,
-                android.R.drawable.ic_menu_manage, android.R.drawable.ic_menu_help,
-                android.R.drawable.ic_menu_manage, android.R.drawable.ic_menu_help,
-                android.R.drawable.ic_menu_manage, android.R.drawable.ic_menu_help};
+        int[] images = {imagenes, imagenes,imagenes,imagenes,imagenes,imagenes,imagenes,imagenes,};
         String[] names = {"Cámara", "Galería", "Configuración", "Ayuda", "Configuración", "Ayuda", "Configuración", "Ayuda"};
 
         // Configurar el adaptador
