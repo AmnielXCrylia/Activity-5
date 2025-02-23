@@ -1,27 +1,49 @@
 package com.example.quinta2;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
 
+        // Crear RecyclerView programáticamente
+        RecyclerView recyclerView = new RecyclerView(this);
+        recyclerView.setLayoutParams(new RecyclerView.LayoutParams(
+                RecyclerView.LayoutParams.MATCH_PARENT,
+                RecyclerView.LayoutParams.MATCH_PARENT
+        ));
 
-        ScrollView scrollView = new ScrollView(this);
+        // Establecer GridLayoutManager con 2 columnas
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+
+        // Datos de ejemplo
+        int[] images = {android.R.drawable.ic_menu_camera, android.R.drawable.ic_menu_gallery,
+                android.R.drawable.ic_menu_manage, android.R.drawable.ic_menu_help,
+                android.R.drawable.ic_menu_manage, android.R.drawable.ic_menu_help,
+                android.R.drawable.ic_menu_manage, android.R.drawable.ic_menu_help};
+        String[] names = {"Cámara", "Galería", "Configuración", "Ayuda", "Configuración", "Ayuda", "Configuración", "Ayuda"};
+
+        // Configurar el adaptador
+        ImageAdapter adapter = new ImageAdapter(images, names);
+        recyclerView.setAdapter(adapter);
+
+        // Mostrar RecyclerView
+        setContentView(recyclerView);
+    }
+}
+
+
+
+/*
+*
+* ScrollView scrollView = new ScrollView(this);
 
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -91,7 +113,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         setContentView(scrollView);
-
-    }
-
-}
+*
+*
+*
+*
+*
+*
+*
+*
+* */
