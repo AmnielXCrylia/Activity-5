@@ -33,7 +33,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setGravity(Gravity.CENTER);
         layout.setPadding(20, 20, 20, 20);
-        layout.setBackgroundColor(Color.LTGRAY);
+        //layout.setBackgroundColor(Color.LTGRAY);
 
         // Crear un ImageView
         ImageView imageView = new ImageView(parent.getContext());
